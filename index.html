@@ -6,269 +6,108 @@
 <title>Mostafa | Media Buyer</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #000;
-    color: white;
-}
-
-section { margin-top: 20px; }
+body {margin:0;font-family:Arial;background:#000;color:#fff;}
+section{margin-top:20px}
 
 /* HERO */
-.hero {
-    height: 380px;
-    position: relative;
-    overflow: hidden;
-}
-.hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: url('cover.webp') center/cover;
-    filter: blur(20px);
-    transform: scale(1.2);
-}
-.hero::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: url('cover.webp') center/contain no-repeat;
-}
-.overlay {
-    position: relative;
-    height: 100%;
-    display: flex;
-    align-items: flex-end;
-    padding: 40px;
-}
-.hero h1 {
-    font-size: 42px;
-    background: linear-gradient(45deg,#d4af37,#f7e7a1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-.hero p { color: #ddd; }
+.hero{height:380px;position:relative;overflow:hidden;}
+.hero::before{content:"";position:absolute;inset:0;background:url('cover.webp') center/cover;filter:blur(20px);transform:scale(1.2);}
+.hero::after{content:"";position:absolute;inset:0;background:url('cover.webp') center/contain no-repeat;}
+.overlay{position:relative;height:100%;display:flex;align-items:flex-end;padding:40px;}
+.hero h1{font-size:42px;background:linear-gradient(45deg,#d4af37,#f7e7a1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.hero p{color:#ddd;}
 
-.btn {
-    background: linear-gradient(45deg,#d4af37,#f7e7a1);
-    color: black;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 4px;
-}
+.btn{background:linear-gradient(45deg,#d4af37,#f7e7a1);color:#000;padding:10px 20px;text-decoration:none;border-radius:4px;font-weight:bold}
 
 /* STATS */
-.stats {
-    display: flex;
-    justify-content: space-around;
-    background: #111;
-    padding: 30px;
-    flex-wrap: wrap;
-}
-.stat-box h3 { color:#d4af37; }
+.stats{display:flex;justify-content:space-around;background:#111;padding:30px;flex-wrap:wrap;}
+.stat-box h3{color:#d4af37}
 
 /* ABOUT + SKILLS */
-.about-skills {
-    padding:80px 20px;
-}
-.two-columns {
-    display:flex;
-    gap:50px;
-    flex-wrap:wrap;
-}
-.about-box, .skills-box {
-    flex:1;
-    min-width:300px;
-}
-.about-skills h2 { color:#d4af37; }
-
-.about-box p {
-    color:#ccc;
-    line-height:1.8;
-}
-.goal {
-    color:#d4af37;
-    font-weight:bold;
-}
+.about-skills{padding:80px 20px;}
+.two-columns{display:flex;gap:50px;flex-wrap:wrap;}
+.about-box,.skills-box{flex:1;min-width:300px;}
+.about-skills h2{color:#d4af37;}
+.about-box p{color:#ccc;line-height:1.8;}
+.goal{color:#d4af37;font-weight:bold;}
 
 /* Skills */
-.skills-exact p {
-    color: #ccc;
-    margin-bottom: 15px;
-    line-height: 1.7;
-    font-size: 15px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
-    opacity: 0;
-    transform: translateY(20px);
-    transition: 0.5s;
+.skills-exact p{
+color:#ccc;margin-bottom:15px;font-size:15px;display:flex;gap:10px;
+opacity:0;transform:translateY(20px);transition:.5s;
 }
-
-.skills-exact p.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.skills-exact span {
-    color: #d4af37;
-    font-size: 18px;
-}
+.skills-exact p.show{opacity:1;transform:translateY(0);}
+.skills-exact span{color:#d4af37}
 
 /* RESULTS */
-.results { padding:80px 20px; }
-
-.results h2 {
-    text-align:center;
-    color:#d4af37;
-}
-
-.sub-title {
-    text-align:center;
-    color:#d4af37;
-    margin:40px 0 20px;
-}
-
-.highlight {
-    font-size:28px;
-}
+.results{padding:80px 20px;}
+.results h2{text-align:center;color:#d4af37;}
+.sub-title{text-align:center;color:#d4af37;margin:40px 0 20px;}
+.highlight{font-size:28px}
 
 /* Gallery */
-.gallery {
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:15px;
-}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px;}
+.gallery.single{grid-template-columns:1fr;max-width:600px;margin:auto;}
+.gallery.single img{height:300px;}
+.gallery img{width:100%;height:200px;object-fit:cover;border-radius:8px;cursor:pointer;}
 
-.gallery.single {
-    grid-template-columns: 1fr;
-    max-width:600px;
-    margin:auto;
-}
-
-.gallery.single img {
-    height:300px;
-}
-
-.gallery img {
-    width:100%;
-    height:200px;
-    object-fit:cover;
-    border-radius:8px;
-    cursor:pointer;
-}
-
-/* CASE STUDY */
-.case-study {
-    display: flex;
-    gap: 30px;
-    align-items: center;
-    margin-top: 20px;
-    flex-wrap: wrap;
-}
-
-.case-img img {
-    width: 100%;
-    max-width: 400px;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-.case-info {
-    max-width: 400px;
-}
-
-.case-info h4 {
-    color: #d4af37;
-    margin-bottom: 10px;
-}
-
-.case-info p {
-    color: #ccc;
-    margin-bottom: 15px;
-}
-
-.case-info li {
-    margin-bottom: 8px;
-    color: #ddd;
-}
+/* CASE */
+.case-study{display:flex;gap:30px;align-items:center;flex-wrap:wrap;}
+.case-img img{max-width:400px;width:100%;border-radius:10px;cursor:pointer;}
+.case-info{max-width:400px;}
+.case-info h4{color:#d4af37}
+.case-info li{margin-bottom:8px;color:#ddd}
 
 /* LIGHTBOX */
-#lightbox {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.95);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-}
-
-#lightbox img {
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 10px;
-}
-
-.close {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 40px;
-    color: white;
-    cursor: pointer;
-}
+#lightbox{position:fixed;inset:0;background:rgba(0,0,0,.95);display:none;justify-content:center;align-items:center;z-index:9999;}
+#lightbox img{max-width:90%;max-height:90%;border-radius:10px;}
+.close{position:absolute;top:20px;right:30px;font-size:40px;cursor:pointer}
 
 /* CONTACT */
-.contact {
-    background:#111;
-    padding:60px;
-    text-align:center;
+.contact{background:#111;padding:60px;text-align:center;}
+.contact a{color:#d4af37;text-decoration:none}
+
+/* FLOATING WA */
+.whatsapp-float{
+position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;
+padding:14px;border-radius:50%;text-decoration:none;font-size:22px;
+box-shadow:0 0 15px rgba(0,0,0,.6);transition:.3s;
 }
+.whatsapp-float:hover{transform:scale(1.1)}
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
 <header class="hero">
 <div class="overlay">
 <div>
 <h1>Mostafa</h1>
 <p>Media Buyer | I Help Brands Scale Profitably</p>
-<a href="#contact" class="btn">Work With Me</a>
+<a href="https://wa.me/201017579942?text=Hello%20Mostafa%2C%20I%20want%20to%20work%20with%20you" target="_blank" class="btn">Work With Me</a>
 </div>
 </div>
 </header>
 
-<!-- STATS -->
 <section class="stats">
 <div class="stat-box"><h3>3+</h3><p>Years Experience</p></div>
-<div class="stat-box"><h3>15+</h3><p>Clients Served</p></div>
-<div class="stat-box"><h3>$5M+</h3><p>Ad Spend Managed</p></div>
+<div class="stat-box"><h3>50+</h3><p>Clients Served</p></div>
+<div class="stat-box"><h3>$1M+</h3><p>Ad Spend Managed</p></div>
 </section>
 
-<!-- ABOUT + SKILLS -->
 <section class="about-skills">
 <div class="two-columns">
 
 <div class="about-box">
 <h2>About Me</h2>
-
 <p>My name is Mostafa, a 23-year-old Media Buyer based in Kafr El Sheikh, Egypt, with over three years of professional experience in digital marketing. I specialize in managing advertising campaigns and helping clients achieve measurable growth for their businesses.</p>
-
 <p>I bring strong communication skills, patience, and problem-solving abilities, along with the capacity to work under pressure and consistently meet deadlines. I also have experience in leading and managing teams effectively.</p>
-
 <p>I am an ambitious, calm, and sociable individual with a creative mindset. Outside of work, I am passionate about bodybuilding, which reflects my discipline and commitment to continuous self-improvement.</p>
-
 <p class="goal">My primary goal is to support clients in scaling their projects and achieving their business objectives efficiently.</p>
 </div>
 
 <div class="skills-box">
 <h2>Skills</h2>
-
 <div class="skills-exact">
 <p><span>★</span>. Media Buying & Performance</p>
 <p><span>★</span>. Meta Ads / Instagram Ads / TikTok Ads</p>
@@ -277,15 +116,12 @@ section { margin-top: 20px; }
 <p><span>★</span>· CRO (Conversion Rate Optimization)</p>
 <p><span>★</span>Landing Page Optimization</p>
 </div>
-
 </div>
 
 </div>
 </section>
 
-<!-- RESULTS -->
 <section class="results">
-<div class="container">
 <h2>Results & Case Studies</h2>
 
 <h3 class="sub-title">Sales in 30 Days</h3>
@@ -295,18 +131,13 @@ section { margin-top: 20px; }
 </div>
 
 <h3 class="sub-title highlight">Sales in 1 Day</h3>
-
 <div class="case-study">
-
 <div class="case-img">
 <img src="3.jpg" onclick="openImage(this.src)">
 </div>
-
 <div class="case-info">
 <h4>150K Sales in One Day 🔥</h4>
-
 <p>150 ألف مبيعات في يوم واحد فقط في مجال الملابس 🔥👕💰</p>
-
 <ul>
 <li>Duration: 1 day ⏱️</li>
 <li>Sales: 150K 💵📈</li>
@@ -316,7 +147,6 @@ section { margin-top: 20px; }
 <li>ROAS: 19.35 🚀📊</li>
 </ul>
 </div>
-
 </div>
 
 <h3 class="sub-title">Various Results</h3>
@@ -335,45 +165,37 @@ section { margin-top: 20px; }
 <img src="15.jpg" onclick="openImage(this.src)">
 <img src="16.jpg" onclick="openImage(this.src)">
 </div>
-
-</div>
 </section>
 
-<!-- LIGHTBOX -->
 <div id="lightbox" onclick="closeImage()">
 <span class="close">&times;</span>
 <img id="lightbox-img">
 </div>
 
-<!-- CONTACT -->
 <section class="contact" id="contact">
 <h2>Contact Me</h2>
-<p>Email: your@email.com</p>
-<p>WhatsApp: <a href="#">Click Here</a></p>
+<p>📧 Email: <a href="mailto:mostafa.amer16399@gmail.com">mostafa.amer16399@gmail.com</a></p>
+<p>💬 WhatsApp: <a href="https://wa.me/201017579942?text=Hello%20Mostafa%2C%20I%20want%20to%20work%20with%20you" target="_blank">Chat Now</a></p>
 </section>
 
+<a href="https://wa.me/201017579942?text=Hello%20Mostafa%2C%20I%20want%20to%20work%20with%20you" class="whatsapp-float" target="_blank">💬</a>
+
 <script>
-function openImage(src) {
-    document.getElementById("lightbox").style.display = "flex";
-    document.getElementById("lightbox-img").src = src;
+function openImage(src){
+document.getElementById("lightbox").style.display="flex";
+document.getElementById("lightbox-img").src=src;
+}
+function closeImage(){
+document.getElementById("lightbox").style.display="none";
 }
 
-function closeImage() {
-    document.getElementById("lightbox").style.display = "none";
+const skills=document.querySelectorAll(".skills-exact p");
+window.addEventListener("scroll",()=>{
+skills.forEach((el,i)=>{
+if(el.getBoundingClientRect().top<window.innerHeight-50){
+setTimeout(()=>{el.classList.add("show")},i*150);
 }
-
-/* Skills Animation */
-const skills = document.querySelectorAll(".skills-exact p");
-
-window.addEventListener("scroll", () => {
-    skills.forEach((el, i) => {
-        const position = el.getBoundingClientRect().top;
-        if (position < window.innerHeight - 50) {
-            setTimeout(() => {
-                el.classList.add("show");
-            }, i * 150);
-        }
-    });
+});
 });
 </script>
 
