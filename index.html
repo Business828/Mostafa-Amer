@@ -173,10 +173,10 @@ to{box-shadow:0 0 25px rgba(212,175,55,0.9);}
 
 <div class="about-box">
 <h2>About Me</h2>
-<p>My name is Mostafa, a 23-year-old Media Buyer based in Kafr El Sheikh, Egypt, with over three years of professional experience in digital marketing. I specialize in managing advertising campaigns and helping clients achieve measurable growth for their businesses.</p>
-<p>I bring strong communication skills, patience, and problem-solving abilities, along with the capacity to work under pressure and consistently meet deadlines. I also have experience in leading and managing teams effectively.</p>
-<p>I am an ambitious, calm, and sociable individual with a creative mindset. Outside of work, I am passionate about bodybuilding, which reflects my discipline and commitment to continuous self-improvement.</p>
-<p class="goal">My primary goal is to support clients in scaling their projects and achieving their business objectives efficiently.</p>
+<p>My name is Mostafa, a 23-year-old Media Buyer based in Kafr El Sheikh, Egypt, with over three years of professional experience in digital marketing...</p>
+<p>I bring strong communication skills...</p>
+<p>I am an ambitious...</p>
+<p class="goal">My primary goal is to support clients...</p>
 </div>
 
 <div class="skills-box">
@@ -269,7 +269,7 @@ setTimeout(()=>{el.classList.add("show")},i*150);
 });
 });
 
-/* 3D PARALLAX */
+/* DESKTOP PARALLAX */
 const hero = document.querySelector(".hero");
 const content = document.querySelector(".overlay > div");
 
@@ -287,6 +287,43 @@ content.style.transform = `translate(0,0)`;
 hero.style.setProperty('--moveX', '0px');
 hero.style.setProperty('--moveY', '0px');
 });
+
+/* MOBILE GYRO */
+if (window.DeviceOrientationEvent) {
+
+let enabled = false;
+
+function enableGyro() {
+    if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+        DeviceOrientationEvent.requestPermission()
+        .then(permissionState => {
+            if (permissionState === 'granted') {
+                enabled = true;
+            }
+        })
+        .catch(console.error);
+    } else {
+        enabled = true;
+    }
+}
+
+window.addEventListener("click", enableGyro);
+window.addEventListener("touchstart", enableGyro);
+
+window.addEventListener("deviceorientation", (event) => {
+    if (!enabled) return;
+
+    let x = (event.gamma / 45) * 20;
+    let y = (event.beta / 45) * 20;
+
+    x = Math.max(-20, Math.min(20, x));
+    y = Math.max(-20, Math.min(20, y));
+
+    content.style.transform = `translate(${x}px, ${y}px)`;
+    hero.style.setProperty('--moveX', -x + 'px');
+    hero.style.setProperty('--moveY', -y + 'px');
+});
+}
 </script>
 
 </body>
