@@ -48,9 +48,8 @@ section { margin-top: 20px; }
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-.hero p {
-    color: #ddd;
-}
+.hero p { color: #ddd; }
+
 .btn {
     background: linear-gradient(45deg,#d4af37,#f7e7a1);
     color: black;
@@ -82,9 +81,8 @@ section { margin-top: 20px; }
     flex:1;
     min-width:300px;
 }
-.about-skills h2 {
-    color:#d4af37;
-}
+.about-skills h2 { color:#d4af37; }
+
 .about-box p {
     color:#ccc;
     line-height:1.8;
@@ -95,17 +93,29 @@ section { margin-top: 20px; }
 }
 
 /* Skills */
-.skill-group { margin-bottom:20px; }
-.bar {
-    height:6px;
-    background:#222;
-    border-radius:10px;
-    margin-top:5px;
+.skills-exact p {
+    color: #ccc;
+    margin-bottom: 15px;
+    line-height: 1.7;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.5s;
 }
-.bar div {
-    height:100%;
-    background:linear-gradient(45deg,#d4af37,#f7e7a1);
-    border-radius:10px;
+
+.skills-exact p.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Icon */
+.skills-exact span {
+    color: #d4af37;
+    font-size: 18px;
 }
 
 /* RESULTS */
@@ -133,8 +143,13 @@ section { margin-top: 20px; }
 }
 
 .gallery.single {
+    grid-template-columns: 1fr;
     max-width:600px;
     margin:auto;
+}
+
+.gallery.single img {
+    height:300px;
 }
 
 .gallery img {
@@ -207,45 +222,25 @@ section { margin-top: 20px; }
 <div class="about-box">
 <h2>About Me</h2>
 
-<p>
-My name is Mostafa, a 23-year-old Media Buyer based in Kafr El Sheikh, Egypt, 
-with over three years of professional experience in digital marketing. I specialize in managing advertising campaigns and helping clients achieve measurable growth for their businesses.
-</p>
+<p>My name is Mostafa, a 23-year-old Media Buyer based in Kafr El Sheikh, Egypt, with over three years of professional experience in digital marketing. I specialize in managing advertising campaigns and helping clients achieve measurable growth for their businesses.</p>
 
-<p>
-I bring strong communication skills, patience, and problem-solving abilities, along with the capacity to work under pressure and consistently meet deadlines. I also have experience in leading and managing teams effectively.
-</p>
+<p>I bring strong communication skills, patience, and problem-solving abilities, along with the capacity to work under pressure and consistently meet deadlines. I also have experience in leading and managing teams effectively.</p>
 
-<p>
-I am an ambitious, calm, and sociable individual with a creative mindset. Outside of work, I am passionate about bodybuilding, which reflects my discipline and commitment to continuous self-improvement.
-</p>
+<p>I am an ambitious, calm, and sociable individual with a creative mindset. Outside of work, I am passionate about bodybuilding, which reflects my discipline and commitment to continuous self-improvement.</p>
 
-<p class="goal">
-My primary goal is to support clients in scaling their projects and achieving their business objectives efficiently.
-</p>
+<p class="goal">My primary goal is to support clients in scaling their projects and achieving their business objectives efficiently.</p>
 </div>
 
 <div class="skills-box">
 <h2>Skills</h2>
 
-<div class="skill-group">
-<p>Meta Ads</p>
-<div class="bar"><div style="width:90%"></div></div>
-</div>
-
-<div class="skill-group">
-<p>Instagram / TikTok / Snapchat Ads</p>
-<div class="bar"><div style="width:85%"></div></div>
-</div>
-
-<div class="skill-group">
-<p>Retargeting Strategies</p>
-<div class="bar"><div style="width:88%"></div></div>
-</div>
-
-<div class="skill-group">
-<p>Funnel Analysis & CRO</p>
-<div class="bar"><div style="width:87%"></div></div>
+<div class="skills-exact">
+<p><span>★</span>. Media Buying & Performance</p>
+<p><span>★</span>. Meta Ads / Instagram Ads / TikTok Ads</p>
+<p><span>★</span>. Retargeting Strategies</p>
+<p><span>★</span>. Funnel Performance Analysis & Gap Detection</p>
+<p><span>★</span>· CRO (Conversion Rate Optimization)</p>
+<p><span>★</span>Landing Page Optimization</p>
 </div>
 
 </div>
@@ -259,7 +254,7 @@ My primary goal is to support clients in scaling their projects and achieving th
 <h2>Results & Case Studies</h2>
 
 <h3 class="sub-title">Sales in 30 Days</h3>
-<div class="gallery">
+<div class="gallery single">
 <img src="1.jpg" onclick="openImage(this.src)">
 <img src="2.jpg" onclick="openImage(this.src)">
 </div>
@@ -311,6 +306,20 @@ function openImage(src) {
 function closeImage() {
     document.getElementById("lightbox").style.display = "none";
 }
+
+/* Animation */
+const skills = document.querySelectorAll(".skills-exact p");
+
+window.addEventListener("scroll", () => {
+    skills.forEach((el, i) => {
+        const position = el.getBoundingClientRect().top;
+        if (position < window.innerHeight - 50) {
+            setTimeout(() => {
+                el.classList.add("show");
+            }, i * 150);
+        }
+    });
+});
 </script>
 
 </body>
