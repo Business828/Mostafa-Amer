@@ -13,6 +13,10 @@
             color: white;
         }
 
+        section {
+            margin-top: 20px;
+        }
+
         /* HERO */
         .hero {
             height: 380px;
@@ -69,6 +73,16 @@
             background: #111;
             padding: 30px;
             text-align: center;
+            flex-wrap: wrap;
+        }
+
+        .stat-box {
+            margin: 10px;
+            transition: 0.3s;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-5px);
         }
 
         .stat-box h3 {
@@ -109,6 +123,25 @@
 
         .goal {
             color: #d4af37;
+            font-weight: bold;
+        }
+
+        /* CONTACT */
+        .contact {
+            background: #111;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .contact h2 {
+            color: #d4af37;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .contact a {
+            color: #d4af37;
+            text-decoration: none;
             font-weight: bold;
         }
     </style>
@@ -170,6 +203,13 @@
             My goal is to help clients scale their businesses and achieve their objectives efficiently.
         </p>
     </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+    <h2>Contact Me</h2>
+    <p>Email: your@email.com</p>
+    <p>WhatsApp: <a href="#">Click Here</a></p>
 </section>
 
 </body>
