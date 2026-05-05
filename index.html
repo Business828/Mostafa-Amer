@@ -11,19 +11,47 @@ section{margin-top:20px}
 
 /* HERO */
 .hero{height:380px;position:relative;overflow:hidden;}
-.hero::before{
-content:"";position:absolute;inset:0;
-background:
-linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.9)),
-url('cover.webp') center/cover;
-filter:blur(20px);transform:scale(1.2);
-}
-.hero::after{content:"";position:absolute;inset:0;background:url('cover.webp') center/contain no-repeat;}
-.overlay{position:relative;height:100%;display:flex;align-items:flex-end;padding:40px;}
-.hero h1{font-size:42px;background:linear-gradient(45deg,#d4af37,#f7e7a1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.hero p{color:#ddd;}
 
-.btn{background:linear-gradient(45deg,#d4af37,#f7e7a1);color:#000;padding:10px 20px;text-decoration:none;border-radius:4px;font-weight:bold}
+.hero::before{
+content:"";
+position:absolute;
+inset:0;
+background:url('cover.webp') center/cover;
+filter:blur(20px);
+transform:scale(1.2);
+animation: zoomMove 20s ease-in-out infinite alternate;
+}
+
+.hero::after{content:"";position:absolute;inset:0;background:url('cover.webp') center/contain no-repeat;}
+
+.overlay{position:relative;height:100%;display:flex;align-items:flex-end;padding:40px;}
+
+.hero h1{
+font-size:42px;
+background:linear-gradient(45deg,#d4af37,#f7e7a1);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation: fadeUp 1s ease forwards;
+}
+
+.hero p{
+color:#ddd;
+opacity:0;
+animation: fadeUp 1s ease forwards;
+animation-delay:.3s;
+}
+
+.btn{
+background:linear-gradient(45deg,#d4af37,#f7e7a1);
+color:#000;
+padding:10px 20px;
+text-decoration:none;
+border-radius:4px;
+font-weight:bold;
+box-shadow:0 0 0 rgba(212,175,55,0.7);
+animation: fadeUp 1s ease forwards, glow 2s infinite alternate;
+animation-delay:.6s;
+}
 
 /* STATS */
 .stats{display:flex;justify-content:space-around;background:#111;padding:30px;flex-wrap:wrap;}
@@ -80,6 +108,22 @@ padding:14px;border-radius:50%;text-decoration:none;font-size:22px;
 box-shadow:0 0 15px rgba(0,0,0,.6);transition:.3s;
 }
 .whatsapp-float:hover{transform:scale(1.1)}
+
+/* ANIMATIONS */
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(30px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+@keyframes zoomMove{
+from{transform:scale(1.2) translate(0,0);}
+to{transform:scale(1.3) translate(-20px,-10px);}
+}
+
+@keyframes glow{
+from{box-shadow:0 0 10px rgba(212,175,55,0.4);}
+to{box-shadow:0 0 25px rgba(212,175,55,0.9);}
+}
 </style>
 </head>
 
@@ -90,7 +134,7 @@ box-shadow:0 0 15px rgba(0,0,0,.6);transition:.3s;
 <div>
 <h1>Mostafa</h1>
 <p>Media Buyer | I Help Brands Scale Profitably</p>
-<a href="https://wa.me/201017579942?text=Hello%20Mostafa%2C%20I%20want%20to%20work%20with%20you" target="_blank" rel="noopener" class="btn">Work With Me</a>
+<a href="https://wa.me/201017579942?text=Hello%20Mostafa%2C%20I%20want%20to%20work%20with%20you" target="_blank" class="btn">Work With Me</a>
 </div>
 </div>
 </header>
@@ -132,14 +176,14 @@ box-shadow:0 0 15px rgba(0,0,0,.6);transition:.3s;
 
 <h3 class="sub-title">Sales in 30 Days</h3>
 <div class="gallery single">
-<img src="1.jpg" loading="lazy" onclick="openImage(this.src)">
-<img src="2.jpg" loading="lazy" onclick="openImage(this.src)">
+<img src="1.jpg" onclick="openImage(this.src)">
+<img src="2.jpg" onclick="openImage(this.src)">
 </div>
 
 <h3 class="sub-title highlight">Sales in 1 Day</h3>
 <div class="case-study">
 <div class="case-img">
-<img src="3.jpg" loading="lazy" onclick="openImage(this.src)">
+<img src="3.jpg" onclick="openImage(this.src)">
 </div>
 <div class="case-info">
 <h4>150K Sales in One Day 🔥</h4>
@@ -157,17 +201,17 @@ box-shadow:0 0 15px rgba(0,0,0,.6);transition:.3s;
 
 <h3 class="sub-title">Various Results</h3>
 <div class="gallery">
-<img src="4.jpg" loading="lazy" onclick="openImage(this.src)">
-<img src="5.jpg" loading="lazy" onclick="openImage(this.src)">
-<img src="6.jpg" loading="lazy" onclick="openImage(this.src)">
-<img src="7.jpg" loading="lazy" onclick="openImage(this.src)">
-<img src="8.jpg" loading="lazy" onclick="openImage(this.src)">
-<img src="9.jpg" loading="lazy" onclick="openImage(this.src)">
-<img src="10.jpg" loading="lazy" onclick="openImage(this.src)">
-<img src="11.jpg" loading="lazy" onclick="openImage(this.src)">
-<img src="12.jpg" loading="lazy" onclick="openImage(this.src)">
-<img src="13.jpg" loading="lazy" onclick="openImage(this.src)">
-<img src="14.jpg" loading="lazy" onclick="openImage(this.src)">
+<img src="4.jpg" onclick="openImage(this.src)">
+<img src="5.jpg" onclick="openImage(this.src)">
+<img src="6.jpg" onclick="openImage(this.src)">
+<img src="7.jpg" onclick="openImage(this.src)">
+<img src="8.jpg" onclick="openImage(this.src)">
+<img src="9.jpg" onclick="openImage(this.src)">
+<img src="10.jpg" onclick="openImage(this.src)">
+<img src="11.jpg" onclick="openImage(this.src)">
+<img src="12.jpg" onclick="openImage(this.src)">
+<img src="13.jpg" onclick="openImage(this.src)">
+<img src="14.jpg" onclick="openImage(this.src)">
 </div>
 </section>
 
@@ -179,25 +223,19 @@ box-shadow:0 0 15px rgba(0,0,0,.6);transition:.3s;
 <section class="contact" id="contact">
 <h2>Contact Me</h2>
 <p>📧 Email: <a href="mailto:mostafa.amer16399@gmail.com">mostafa.amer16399@gmail.com</a></p>
-<p>💬 WhatsApp: <a href="https://wa.me/201017579942?text=Hello%20Mostafa%2C%20I%20want%20to%20work%20with%20you" target="_blank" rel="noopener">Chat Now</a></p>
+<p>💬 WhatsApp: <a href="https://wa.me/201017579942?text=Hello%20Mostafa%2C%20I%20want%20to%20work%20with%20you" target="_blank">Chat Now</a></p>
 </section>
 
-<a href="https://wa.me/201017579942?text=Hello%20Mostafa%2C%20I%20want%20to%20work%20with%20you" class="whatsapp-float" target="_blank" rel="noopener">💬</a>
+<a href="https://wa.me/201017579942?text=Hello%20Mostafa%2C%20I%20want%20to%20work%20with%20you" class="whatsapp-float" target="_blank">💬</a>
 
 <script>
 function openImage(src){
-document.body.style.overflow="hidden";
 document.getElementById("lightbox").style.display="flex";
 document.getElementById("lightbox-img").src=src;
 }
 function closeImage(){
-document.body.style.overflow="auto";
 document.getElementById("lightbox").style.display="none";
 }
-
-document.addEventListener("keydown",e=>{
-if(e.key==="Escape") closeImage();
-});
 
 const skills=document.querySelectorAll(".skills-exact p");
 window.addEventListener("scroll",()=>{
