@@ -10,7 +10,12 @@ body {margin:0;font-family:Arial;background:#000;color:#fff;}
 section{margin-top:20px}
 
 /* HERO */
-.hero{height:380px;position:relative;overflow:hidden;}
+.hero{
+height:380px;
+position:relative;
+overflow:hidden;
+perspective:1000px;
+}
 
 .hero::before{
 content:"";
@@ -22,9 +27,27 @@ transform:scale(1.2);
 animation: zoomMove 20s ease-in-out infinite alternate;
 }
 
-.hero::after{content:"";position:absolute;inset:0;background:url('cover.webp') center/contain no-repeat;}
+.hero::after{
+content:"";
+position:absolute;
+inset:0;
+background:url('cover.webp') center/contain no-repeat;
+transform: translate(var(--moveX,0), var(--moveY,0));
+transition: transform .2s ease;
+}
 
-.overlay{position:relative;height:100%;display:flex;align-items:flex-end;padding:40px;}
+.overlay{
+position:relative;
+height:100%;
+display:flex;
+align-items:flex-end;
+padding:40px;
+}
+
+.overlay > div{
+transition: transform .2s ease;
+will-change: transform;
+}
 
 .hero h1{
 font-size:42px;
@@ -244,6 +267,25 @@ if(el.getBoundingClientRect().top<window.innerHeight-50){
 setTimeout(()=>{el.classList.add("show")},i*150);
 }
 });
+});
+
+/* 3D PARALLAX */
+const hero = document.querySelector(".hero");
+const content = document.querySelector(".overlay > div");
+
+hero.addEventListener("mousemove", (e) => {
+const x = (e.clientX / window.innerWidth - 0.5) * 20;
+const y = (e.clientY / window.innerHeight - 0.5) * 20;
+
+content.style.transform = `translate(${x}px, ${y}px)`;
+hero.style.setProperty('--moveX', -x + 'px');
+hero.style.setProperty('--moveY', -y + 'px');
+});
+
+hero.addEventListener("mouseleave", () => {
+content.style.transform = `translate(0,0)`;
+hero.style.setProperty('--moveX', '0px');
+hero.style.setProperty('--moveY', '0px');
 });
 </script>
 
