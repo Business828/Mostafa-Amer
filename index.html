@@ -16,7 +16,7 @@ content:"";position:absolute;inset:0;
 background:
 linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.9)),
 url('cover.webp') center/cover;
-filter:blur(12px);transform:scale(1.1);
+filter:blur(20px);transform:scale(1.2);
 }
 .hero::after{content:"";position:absolute;inset:0;background:url('cover.webp') center/contain no-repeat;}
 .overlay{position:relative;height:100%;display:flex;align-items:flex-end;padding:40px;}
@@ -54,6 +54,7 @@ opacity:0;transform:translateY(20px);transition:.5s;
 /* Gallery */
 .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px;}
 .gallery.single{grid-template-columns:1fr;max-width:600px;margin:auto;}
+.gallery.single img{height:300px;}
 .gallery img{width:100%;height:200px;object-fit:cover;border-radius:8px;cursor:pointer;}
 
 /* CASE */
@@ -69,7 +70,7 @@ opacity:0;transform:translateY(20px);transition:.5s;
 .close{position:absolute;top:20px;right:30px;font-size:40px;cursor:pointer}
 
 /* CONTACT */
-.contact{background:#111;padding:40px 20px;text-align:center;}
+.contact{background:#111;padding:60px;text-align:center;}
 .contact a{color:#d4af37;text-decoration:none}
 
 /* FLOATING WA */
@@ -105,10 +106,10 @@ box-shadow:0 0 15px rgba(0,0,0,.6);transition:.3s;
 
 <div class="about-box">
 <h2>About Me</h2>
-<p>My name is Mostafa, a 23-year-old Media Buyer based in Kafr El Sheikh, Egypt, with over three years of professional experience in digital marketing...</p>
-<p>I bring strong communication skills...</p>
-<p>I am an ambitious...</p>
-<p class="goal">My primary goal is to support clients...</p>
+<p>My name is Mostafa, a 23-year-old Media Buyer based in Kafr El Sheikh, Egypt, with over three years of professional experience in digital marketing. I specialize in managing advertising campaigns and helping clients achieve measurable growth for their businesses.</p>
+<p>I bring strong communication skills, patience, and problem-solving abilities, along with the capacity to work under pressure and consistently meet deadlines. I also have experience in leading and managing teams effectively.</p>
+<p>I am an ambitious, calm, and sociable individual with a creative mindset. Outside of work, I am passionate about bodybuilding, which reflects my discipline and commitment to continuous self-improvement.</p>
+<p class="goal">My primary goal is to support clients in scaling their projects and achieving their business objectives efficiently.</p>
 </div>
 
 <div class="skills-box">
@@ -130,7 +131,7 @@ box-shadow:0 0 15px rgba(0,0,0,.6);transition:.3s;
 <h2>Results & Case Studies</h2>
 
 <h3 class="sub-title">Sales in 30 Days</h3>
-<div class="gallery">
+<div class="gallery single">
 <img src="1.jpg" loading="lazy" onclick="openImage(this.src)">
 <img src="2.jpg" loading="lazy" onclick="openImage(this.src)">
 </div>
@@ -140,7 +141,6 @@ box-shadow:0 0 15px rgba(0,0,0,.6);transition:.3s;
 <div class="case-img">
 <img src="3.jpg" loading="lazy" onclick="openImage(this.src)">
 </div>
-
 <div class="case-info">
 <h4>150K Sales in One Day 🔥</h4>
 <p>150 ألف مبيعات في يوم واحد فقط في مجال الملابس 🔥👕💰</p>
@@ -154,7 +154,35 @@ box-shadow:0 0 15px rgba(0,0,0,.6);transition:.3s;
 </ul>
 </div>
 </div>
+
+<h3 class="sub-title">Various Results</h3>
+<div class="gallery">
+<img src="4.jpg" loading="lazy" onclick="openImage(this.src)">
+<img src="5.jpg" loading="lazy" onclick="openImage(this.src)">
+<img src="6.jpg" loading="lazy" onclick="openImage(this.src)">
+<img src="7.jpg" loading="lazy" onclick="openImage(this.src)">
+<img src="8.jpg" loading="lazy" onclick="openImage(this.src)">
+<img src="9.jpg" loading="lazy" onclick="openImage(this.src)">
+<img src="10.jpg" loading="lazy" onclick="openImage(this.src)">
+<img src="11.jpg" loading="lazy" onclick="openImage(this.src)">
+<img src="12.jpg" loading="lazy" onclick="openImage(this.src)">
+<img src="13.jpg" loading="lazy" onclick="openImage(this.src)">
+<img src="14.jpg" loading="lazy" onclick="openImage(this.src)">
+</div>
 </section>
+
+<div id="lightbox" onclick="closeImage()">
+<span class="close">&times;</span>
+<img id="lightbox-img">
+</div>
+
+<section class="contact" id="contact">
+<h2>Contact Me</h2>
+<p>📧 Email: <a href="mailto:mostafa.amer16399@gmail.com">mostafa.amer16399@gmail.com</a></p>
+<p>💬 WhatsApp: <a href="https://wa.me/201017579942?text=Hello%20Mostafa%2C%20I%20want%20to%20work%20with%20you" target="_blank" rel="noopener">Chat Now</a></p>
+</section>
+
+<a href="https://wa.me/201017579942?text=Hello%20Mostafa%2C%20I%20want%20to%20work%20with%20you" class="whatsapp-float" target="_blank" rel="noopener">💬</a>
 
 <script>
 function openImage(src){
@@ -169,6 +197,15 @@ document.getElementById("lightbox").style.display="none";
 
 document.addEventListener("keydown",e=>{
 if(e.key==="Escape") closeImage();
+});
+
+const skills=document.querySelectorAll(".skills-exact p");
+window.addEventListener("scroll",()=>{
+skills.forEach((el,i)=>{
+if(el.getBoundingClientRect().top<window.innerHeight-50){
+setTimeout(()=>{el.classList.add("show")},i*150);
+}
+});
 });
 </script>
 
