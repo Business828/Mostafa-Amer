@@ -112,7 +112,6 @@ section { margin-top: 20px; }
     transform: translateY(0);
 }
 
-/* Icon */
 .skills-exact span {
     color: #d4af37;
     font-size: 18px;
@@ -136,6 +135,7 @@ section { margin-top: 20px; }
     font-size:28px;
 }
 
+/* Gallery */
 .gallery {
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -158,6 +158,41 @@ section { margin-top: 20px; }
     object-fit:cover;
     border-radius:8px;
     cursor:pointer;
+}
+
+/* CASE STUDY */
+.case-study {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.case-img img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.case-info {
+    max-width: 400px;
+}
+
+.case-info h4 {
+    color: #d4af37;
+    margin-bottom: 10px;
+}
+
+.case-info p {
+    color: #ccc;
+    margin-bottom: 15px;
+}
+
+.case-info li {
+    margin-bottom: 8px;
+    color: #ddd;
 }
 
 /* LIGHTBOX */
@@ -211,8 +246,8 @@ section { margin-top: 20px; }
 <!-- STATS -->
 <section class="stats">
 <div class="stat-box"><h3>3+</h3><p>Years Experience</p></div>
-<div class="stat-box"><h3>50+</h3><p>Clients Served</p></div>
-<div class="stat-box"><h3>$1M+</h3><p>Ad Spend Managed</p></div>
+<div class="stat-box"><h3>15+</h3><p>Clients Served</p></div>
+<div class="stat-box"><h3>$5M+</h3><p>Ad Spend Managed</p></div>
 </section>
 
 <!-- ABOUT + SKILLS -->
@@ -260,8 +295,28 @@ section { margin-top: 20px; }
 </div>
 
 <h3 class="sub-title highlight">Sales in 1 Day</h3>
-<div class="gallery single">
+
+<div class="case-study">
+
+<div class="case-img">
 <img src="3.jpg" onclick="openImage(this.src)">
+</div>
+
+<div class="case-info">
+<h4>150K Sales in One Day 🔥</h4>
+
+<p>150 ألف مبيعات في يوم واحد فقط في مجال الملابس 🔥👕💰</p>
+
+<ul>
+<li>Duration: 1 day ⏱️</li>
+<li>Sales: 150K 💵📈</li>
+<li>Orders: 147 🔥</li>
+<li>Spend: 7,789 💳</li>
+<li>CPP: 52.98 🎯</li>
+<li>ROAS: 19.35 🚀📊</li>
+</ul>
+</div>
+
 </div>
 
 <h3 class="sub-title">Various Results</h3>
@@ -307,7 +362,7 @@ function closeImage() {
     document.getElementById("lightbox").style.display = "none";
 }
 
-/* Animation */
+/* Skills Animation */
 const skills = document.querySelectorAll(".skills-exact p");
 
 window.addEventListener("scroll", () => {
