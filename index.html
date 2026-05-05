@@ -4,81 +4,129 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mostafa | Media Buyer</title>
+
     <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: #0f172a;
+            background: #000;
             color: white;
         }
-        header {
-            background: #1e293b;
-            padding: 20px;
+
+        /* HERO SECTION */
+        .hero {
+            height: 100vh;
+            background: url('cover.jpg') no-repeat center center/cover;
+            position: relative;
+        }
+
+        .overlay {
+            height: 100%;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-        }
-        header h1 {
-            margin: 0;
-        }
-        section {
-            padding: 40px;
-            max-width: 900px;
-            margin: auto;
-        }
-        .card {
-            background: #1e293b;
             padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
         }
-        h2 {
-            color: #38bdf8;
+
+        .overlay h1 {
+            font-size: 60px;
+            margin: 0;
+            color: #d4af37;
         }
+
+        .overlay p {
+            font-size: 20px;
+            margin: 15px 0;
+            color: #f5f5f5;
+        }
+
         .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background: #38bdf8;
+            padding: 12px 25px;
+            background: linear-gradient(45deg, #d4af37, #f7e7a1);
             color: black;
             text-decoration: none;
             border-radius: 5px;
-            margin-top: 10px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+        }
+
+        /* ABOUT SECTION */
+        .about {
+            background: #000;
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 40px;
+            color: #d4af37;
+            margin-bottom: 30px;
+        }
+
+        .about p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #ccc;
+        }
+
+        .goal {
+            color: #d4af37;
+            font-weight: bold;
         }
     </style>
 </head>
+
 <body>
 
-<header>
-    <h1>Mostafa</h1>
-    <p>Media Buyer | Digital Marketing Specialist</p>
+<!-- HERO -->
+<header class="hero">
+    <div class="overlay">
+        <h1>Mostafa</h1>
+        <p>Performance Media Buyer | Scaling Brands with Data-Driven Ads</p>
+        <a href="#contact" class="btn">Get In Touch</a>
+    </div>
 </header>
 
-<section>
-    <div class="card">
+<!-- ABOUT -->
+<section class="about">
+    <div class="container">
         <h2>About Me</h2>
+        
         <p>
-            I am a Media Buyer with over 3 years of experience in digital marketing.
-            I help clients grow their businesses through effective ad campaigns.
+            My name is Mostafa, a 23-year-old Media Buyer based in Kafr El Sheikh, Egypt, 
+            with over three years of experience in digital marketing. I specialize in 
+            managing advertising campaigns and helping clients achieve measurable growth.
         </p>
-    </div>
 
-    <div class="card">
-        <h2>Skills</h2>
-        <ul>
-            <li>Facebook & Google Ads</li>
-            <li>Client Communication</li>
-            <li>Problem Solving</li>
-            <li>Team Management</li>
-        </ul>
-    </div>
+        <p>
+            I bring strong communication skills, patience, and problem-solving abilities, 
+            with the capacity to work under pressure and consistently meet deadlines. 
+            I also have experience in leading and managing teams effectively.
+        </p>
 
-    <div class="card">
-        <h2>Experience</h2>
-        <p>3+ years working with clients to scale their projects and increase ROI.</p>
-    </div>
+        <p>
+            I am an ambitious, calm, and sociable individual with a creative mindset. 
+            Outside of work, I am passionate about bodybuilding, reflecting my discipline 
+            and commitment to continuous self-improvement.
+        </p>
 
-    <div class="card">
-        <h2>Contact</h2>
-        <p>Email: your@email.com</p>
-        <a href="#" class="btn">Contact Me</a>
+        <p class="goal">
+            My goal is to help clients scale their businesses and achieve their objectives efficiently.
+        </p>
     </div>
 </section>
 
