@@ -1,134 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mostafa | Media Buyer</title>
-
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #000;
-            color: white;
-        }
-
-        /* HERO SECTION */
-        .hero {
-            height: 100vh;
-            background: url('cover.webp') no-repeat center center/cover;
-            position: relative;
-        }
-
-        .overlay {
-            height: 100%;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.75);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
-        }
-
-        .overlay h1 {
-            font-size: 60px;
-            margin: 0;
-            color: #d4af37;
-        }
-
-        .overlay p {
-            font-size: 20px;
-            margin: 15px 0;
-            color: #f5f5f5;
-        }
-
-        .btn {
-            padding: 12px 25px;
-            background: linear-gradient(45deg, #d4af37, #f7e7a1);
-            color: black;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            opacity: 0.8;
-        }
-
-        /* ABOUT SECTION */
-        .about {
-            background: #000;
-            padding: 80px 20px;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: auto;
-            text-align: center;
-        }
-
-        .about h2 {
-            font-size: 40px;
-            color: #d4af37;
-            margin-bottom: 30px;
-        }
-
-        .about p {
-            font-size: 18px;
-            line-height: 1.8;
-            margin-bottom: 20px;
-            color: #ccc;
-        }
-
-        .goal {
-            color: #d4af37;
-            font-weight: bold;
-        }
-    </style>
-</head>
-
-<body>
-
-<!-- HERO -->
 <header class="hero">
     <div class="overlay">
-        <h1>Mostafa</h1>
-        <p>Performance Media Buyer | Scaling Brands with Data-Driven Ads</p>
-        <a href="#contact" class="btn">Get In Touch</a>
+        <div class="hero-content">
+            <h1>Mostafa</h1>
+            <p>Media Buyer | I Help Brands Scale Profitably</p>
+            <a href="#contact" class="btn">Work With Me</a>
+        </div>
     </div>
 </header>
 
-<!-- ABOUT -->
-<section class="about">
-    <div class="container">
-        <h2>About Me</h2>
-        
-        <p>
-            My name is Mostafa, a 23-year-old Media Buyer based in Kafr El Sheikh, Egypt, 
-            with over three years of experience in digital marketing. I specialize in 
-            managing advertising campaigns and helping clients achieve measurable growth.
-        </p>
+<style>
+.hero {
+    height: 380px;
+    background: url('cover.jpg') no-repeat center center/cover;
+    position: relative;
+}
 
-        <p>
-            I bring strong communication skills, patience, and problem-solving abilities, 
-            with the capacity to work under pressure and consistently meet deadlines. 
-            I also have experience in leading and managing teams effectively.
-        </p>
+/* Overlay احترافي */
+.overlay {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.8),
+        rgba(0,0,0,0.9)
+    );
+    display: flex;
+    align-items: flex-end;
+    padding: 40px;
+}
 
-        <p>
-            I am an ambitious, calm, and sociable individual with a creative mindset. 
-            Outside of work, I am passionate about bodybuilding, reflecting my discipline 
-            and commitment to continuous self-improvement.
-        </p>
+/* محتوى الهيدر */
+.hero-content {
+    max-width: 700px;
+}
 
-        <p class="goal">
-            My goal is to help clients scale their businesses and achieve their objectives efficiently.
-        </p>
-    </div>
-</section>
+.hero-content h1 {
+    font-size: 42px;
+    margin: 0;
+    background: linear-gradient(45deg, #d4af37, #f7e7a1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
-</body>
-</html>
+.hero-content p {
+    font-size: 18px;
+    margin: 10px 0 20px;
+    color: #ddd;
+}
+
+/* زرار احترافي */
+.btn {
+    padding: 10px 22px;
+    background: linear-gradient(45deg, #d4af37, #f7e7a1);
+    color: black;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+</style>
