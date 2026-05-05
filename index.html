@@ -1,323 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mostafa | Media Buyer</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mostafa | Media Buyer</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #000;
-            color: white;
-        }
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #000;
+    color: white;
+}
 
-        section {
-            margin-top: 20px;
-        }
+section { margin-top: 20px; }
 
-        /* HERO */
-        .hero {
-            height: 380px;
-            position: relative;
-            overflow: hidden;
-        }
+/* HERO */
+.hero {
+    height: 380px;
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url('cover.webp') center/cover;
+    filter: blur(20px);
+    transform: scale(1.2);
+}
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url('cover.webp') center/contain no-repeat;
+}
+.overlay {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    padding: 40px;
+}
+.hero h1 {
+    font-size: 42px;
+    background: linear-gradient(45deg,#d4af37,#f7e7a1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.hero p {
+    color: #ddd;
+}
+.btn {
+    background: linear-gradient(45deg,#d4af37,#f7e7a1);
+    color: black;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+}
 
-        .hero::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: url('cover.webp') no-repeat center center/cover;
-            filter: blur(20px);
-            transform: scale(1.2);
-            z-index: 1;
-        }
+/* STATS */
+.stats {
+    display: flex;
+    justify-content: space-around;
+    background: #111;
+    padding: 30px;
+}
+.stat-box h3 { color:#d4af37; }
 
-        .hero::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: url('cover.webp') no-repeat center center/contain;
-            z-index: 2;
-        }
+/* ABOUT + SKILLS */
+.about-skills {
+    padding:80px 20px;
+}
+.two-columns {
+    display:flex;
+    gap:50px;
+    flex-wrap:wrap;
+}
+.about-box, .skills-box {
+    flex:1;
+    min-width:300px;
+}
+h2 {
+    color:#d4af37;
+}
+.skill-group { margin-bottom:20px; }
+.bar {
+    height:6px;
+    background:#222;
+}
+.bar div {
+    height:100%;
+    background:linear-gradient(45deg,#d4af37,#f7e7a1);
+}
 
-        .overlay {
-            position: relative;
-            z-index: 3;
-            height: 100%;
-            width: 100%;
-            display: flex;
-            align-items: flex-end;
-            padding: 40px;
-        }
+/* RESULTS */
+.results { padding:80px 20px; }
+.gallery {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:15px;
+}
+.gallery img {
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
 
-        .hero-content {
-            max-width: 700px;
-        }
-
-        .hero-content h1 {
-            font-size: 42px;
-            margin: 0;
-            background: linear-gradient(45deg, #d4af37, #f7e7a1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.7);
-        }
-
-        .hero-content p {
-            font-size: 18px;
-            margin: 10px 0 20px;
-            color: #ddd;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.7);
-        }
-
-        .btn {
-            padding: 10px 22px;
-            background: linear-gradient(45deg, #d4af37, #f7e7a1);
-            color: black;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            opacity: 0.9;
-        }
-
-        /* STATS */
-        .stats {
-            display: flex;
-            justify-content: space-around;
-            background: #111;
-            padding: 30px;
-            text-align: center;
-            flex-wrap: wrap;
-        }
-
-        .stat-box {
-            margin: 10px;
-            transition: 0.3s;
-        }
-
-        .stat-box:hover {
-            transform: translateY(-5px);
-        }
-
-        .stat-box h3 {
-            color: #d4af37;
-            font-size: 28px;
-            margin: 0;
-        }
-
-        .stat-box p {
-            color: #aaa;
-            margin: 5px 0 0;
-        }
-
-        /* ABOUT */
-        .about {
-            background: #000;
-            padding: 80px 20px;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: auto;
-            text-align: center;
-        }
-
-        .about h2 {
-            font-size: 40px;
-            color: #d4af37;
-            margin-bottom: 30px;
-        }
-
-        .about p {
-            font-size: 18px;
-            line-height: 1.8;
-            margin-bottom: 20px;
-            color: #ccc;
-        }
-
-        .goal {
-            color: #d4af37;
-            font-weight: bold;
-        }
-
-        /* RESULTS */
-        .results {
-            background: #000;
-            padding: 80px 20px;
-        }
-
-        .results h2 {
-            text-align: center;
-            color: #d4af37;
-            font-size: 40px;
-            margin-bottom: 40px;
-        }
-
-        .sub-title {
-            color: #d4af37;
-            margin: 40px 0 20px;
-            text-align: center;
-            font-size: 24px;
-        }
-
-        .highlight {
-            font-size: 28px;
-        }
-
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-        }
-
-        .gallery.single {
-            grid-template-columns: 1fr;
-            max-width: 600px;
-            margin: auto;
-        }
-
-        .gallery img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 8px;
-            transition: 0.3s;
-        }
-
-        .gallery.single img {
-            height: 300px;
-        }
-
-        .gallery img:hover {
-            transform: scale(1.05);
-        }
-
-        /* CONTACT */
-        .contact {
-            background: #111;
-            padding: 60px 20px;
-            text-align: center;
-        }
-
-        .contact h2 {
-            color: #d4af37;
-            font-size: 32px;
-            margin-bottom: 20px;
-        }
-
-        .contact a {
-            color: #d4af37;
-            text-decoration: none;
-            font-weight: bold;
-        }
-    </style>
+/* CONTACT */
+.contact {
+    background:#111;
+    padding:60px;
+    text-align:center;
+}
+</style>
 </head>
 
 <body>
 
 <!-- HERO -->
 <header class="hero">
-    <div class="overlay">
-        <div class="hero-content">
-            <h1>Mostafa</h1>
-            <p>Media Buyer | I Help Brands Scale Profitably</p>
-            <a href="#contact" class="btn">Work With Me</a>
-        </div>
-    </div>
+<div class="overlay">
+<div>
+<h1>Mostafa</h1>
+<p>Media Buyer | I Help Brands Scale</p>
+<a href="#contact" class="btn">Work With Me</a>
+</div>
+</div>
 </header>
 
 <!-- STATS -->
 <section class="stats">
-    <div class="stat-box">
-        <h3>3+</h3>
-        <p>Years Experience</p>
-    </div>
-    <div class="stat-box">
-        <h3>50+</h3>
-        <p>Clients Served</p>
-    </div>
-    <div class="stat-box">
-        <h3>$1M+</h3>
-        <p>Ad Spend Managed</p>
-    </div>
+<div class="stat-box"><h3>3+</h3><p>Years</p></div>
+<div class="stat-box"><h3>50+</h3><p>Clients</p></div>
+<div class="stat-box"><h3>$1M+</h3><p>Ad Spend</p></div>
 </section>
 
-<!-- ABOUT -->
-<section class="about">
-    <div class="container">
-        <h2>About Me</h2>
-        
-        <p>
-            My name is Mostafa, a 23-year-old Media Buyer based in Kafr El Sheikh, Egypt, 
-            with over three years of experience in digital marketing. I specialize in 
-            managing advertising campaigns and helping clients achieve measurable growth.
-        </p>
+<!-- ABOUT + SKILLS -->
+<section class="about-skills">
+<div class="two-columns">
 
-        <p>
-            I bring strong communication skills, patience, and problem-solving abilities, 
-            with the capacity to work under pressure and consistently meet deadlines. 
-            I also have experience in leading and managing teams effectively.
-        </p>
+<div class="about-box">
+<h2>About Me</h2>
+<p>Media Buyer with 3+ years experience helping businesses grow.</p>
+</div>
 
-        <p>
-            I am an ambitious, calm, and sociable individual with a creative mindset. 
-            Outside of work, I am passionate about bodybuilding, reflecting my discipline 
-            and commitment to continuous self-improvement.
-        </p>
+<div class="skills-box">
+<h2>Skills</h2>
 
-        <p class="goal">
-            My goal is to help clients scale their businesses and achieve their objectives efficiently.
-        </p>
-    </div>
+<div class="skill-group">
+<p>Meta Ads</p>
+<div class="bar"><div style="width:90%"></div></div>
+</div>
+
+<div class="skill-group">
+<p>Retargeting</p>
+<div class="bar"><div style="width:88%"></div></div>
+</div>
+
+</div>
+
+</div>
 </section>
 
 <!-- RESULTS -->
 <section class="results">
-    <div class="container">
-        <h2>Results & Case Studies</h2>
+<h2>Results</h2>
 
-        <h3 class="sub-title">Sales in 30 Days</h3>
-        <div class="gallery">
-            <img src="1.jpg">
-            <img src="2.jpg">
-        </div>
+<h3>Sales in 30 Days</h3>
+<div class="gallery">
+<img src="1.jpg">
+<img src="2.jpg">
+</div>
 
-        <h3 class="sub-title highlight">Sales in 1 Day</h3>
-        <div class="gallery single">
-            <img src="3.jpg">
-        </div>
+<h3>Sales in 1 Day</h3>
+<div class="gallery">
+<img src="3.jpg">
+</div>
 
-        <h3 class="sub-title">Various Results</h3>
-        <div class="gallery">
-            <img src="4.jpg">
-            <img src="5.jpg">
-            <img src="6.jpg">
-            <img src="7.jpg">
-            <img src="8.jpg">
-            <img src="9.jpg">
-            <img src="10.jpg">
-            <img src="11.jpg">
-            <img src="12.jpg">
-            <img src="13.jpg">
-            <img src="14.jpg">
-            <img src="15.jpg">
-            <img src="16.jpg">
-        </div>
-    </div>
+<h3>Various Results</h3>
+<div class="gallery">
+<img src="4.jpg">
+<img src="5.jpg">
+<img src="6.jpg">
+<img src="7.jpg">
+<img src="8.jpg">
+<img src="9.jpg">
+<img src="10.jpg">
+<img src="11.jpg">
+<img src="12.jpg">
+<img src="13.jpg">
+<img src="14.jpg">
+<img src="15.jpg">
+<img src="16.jpg">
+</div>
+
 </section>
 
 <!-- CONTACT -->
 <section class="contact" id="contact">
-    <h2>Contact Me</h2>
-    <p>Email: your@email.com</p>
-    <p>WhatsApp: <a href="#">Click Here</a></p>
+<h2>Contact</h2>
+<p>Email: your@email.com</p>
 </section>
 
 </body>
