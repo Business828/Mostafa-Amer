@@ -28,7 +28,50 @@
 }
 body {margin:0;font-family:Arial;background:#000;color:#fff;}
 section{margin-top:20px}
+.cover-card{
+  position:relative;
+  max-width:500px;
+  margin:30px auto;
+  border-radius:15px;
+  overflow:hidden;
+  cursor:pointer;
+  box-shadow:0 10px 30px rgba(0,0,0,0.6);
+  transition:0.3s;
+}
 
+.cover-card img{
+  width:100%;
+  height:300px;
+  object-fit:cover;
+  display:block;
+}
+
+.cover-card:hover{
+  transform:scale(1.02);
+}
+
+.cover-overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.55);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:#fff;
+}
+
+.cover-overlay h3{
+  color:#d4af37;
+  margin:0;
+  font-size:22px;
+}
+
+.cover-overlay p{
+  font-size:14px;
+  opacity:0.8;
+}
 /* HERO */
 .hero{
 height:380px;
@@ -290,23 +333,6 @@ z-index:10000;
     <h3>View Previous Works</h3>
     <p>Click to browse all projects →</p>
   </div>
-</div>
-
-<img src="unnamed 1.jpg" onclick="openGallery()">
-<img src="unnamed 2.jpg" onclick="openGallery()">
-<img src="unnamed 3.jpg" onclick="openGallery()">
-<img src="unnamed 4.jpg" onclick="openGallery()">
-<img src="unnamed 5.jpg" onclick="openGallery()">
-<img src="unnamed 6.jpg" onclick="openGallery()">
-<img src="unnamed 7.jpg" onclick="openGallery()">
-<img src="unnamed 8.jpg" onclick="openGallery()">
-<img src="unnamed 9.jpg" onclick="openGallery()">
-<img src="unnamed 10.jpg" onclick="openGallery()">
-<img src="unnamed 11.jpg" onclick="openGallery()">
-<img src="unnamed 12.jpg" onclick="openGallery()">
-<img src="unnamed 13.jpg" onclick="openGallery()">
-<img src="unnamed 14.jpg" onclick="openGallery()">
-<img src="unnamed 15.jpg" onclick="openGallery()">
 </div>
 </section>
 <section class="contact" id="contact">
