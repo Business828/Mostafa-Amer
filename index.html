@@ -257,12 +257,13 @@ to{box-shadow:0 0 25px rgba(212,175,55,0.9);}
 <img src="14.jpg" onclick="openImage(this.src)">
 </div>
 </section>
-<img id="lightbox-img">
+<div id="lightbox" onclick="closeImage()">
+  <span class="close">&times;</span>
+  <img id="lightbox-img">
 </div>
 <!-- PREVIOUS WORKS -->
 <section class="results">
-<section class="results">
-<h2>اPREVIOUS WORKS</h2>
+<h2>PREVIOUS WORKS</h2>
 
 <div class="instagram-gallery">
 
@@ -309,9 +310,7 @@ setTimeout(()=>{el.classList.add("show")},i*150);
 }
 });
 });
-
-</div>
-</section>
+    
 /* DESKTOP PARALLAX */
 const hero = document.querySelector(".hero");
 const content = document.querySelector(".overlay > div");
