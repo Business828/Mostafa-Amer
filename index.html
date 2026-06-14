@@ -316,6 +316,9 @@ z-index:10000;
 let images = document.querySelectorAll(".instagram-gallery img");
 let currentIndex = 0;
 
+let startX = 0;
+let endX = 0;
+
 function openImage(img){
   currentIndex = Number(img.dataset.index);
   document.getElementById("lightbox").style.display = "flex";
@@ -341,7 +344,18 @@ function nextImage(){
 function prevImage(){
   showImage(currentIndex - 1);
 }
+    
+function handleSwipe(){
+  let diff = startX - endX;
 
+  if(Math.abs(diff) < 50) return;
+
+  if(diff > 0){
+    nextImage();   // سحب شمال
+  } else {
+    prevImage();   // سحب يمين
+  }
+}
 const skills=document.querySelectorAll(".skills-exact p");
 window.addEventListener("scroll",()=>{
 skills.forEach((el,i)=>{
@@ -350,7 +364,16 @@ setTimeout(()=>{el.classList.add("show")},i*150);
 }
 });
 });
-    
+const lightbox = document.getElementById("lightbox");
+
+lightbox.addEventListener("touchstart", (e) => {
+  startX = e.touches[0].clientX;
+});
+
+lightbox.addEventListener("touchend", (e) => {
+  endX = e.changedTouches[0].clientX;
+  handleSwipe();
+});
 /* DESKTOP PARALLAX */
 const hero = document.querySelector(".hero");
 const content = document.querySelector(".overlay > div");
