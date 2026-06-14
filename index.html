@@ -286,22 +286,21 @@ z-index:10000;
 
 <div class="instagram-gallery">
 
-<img src="unnamed 1.jpg" data-index="0" onclick="openImage(this)">
-<img src="unnamed 2.jpg" data-index="1" onclick="openImage(this)">
-<img src="unnamed 3.jpg" data-index="2" onclick="openImage(this)">
-<img src="unnamed 4.jpg" data-index="3" onclick="openImage(this)">
-<img src="unnamed 5.jpg" data-index="4" onclick="openImage(this)">
-<img src="unnamed 6.jpg" data-index="5" onclick="openImage(this)">
-<img src="unnamed 7.jpg" data-index="6" onclick="openImage(this)">
-<img src="unnamed 8.jpg" data-index="7" onclick="openImage(this)">
-<img src="unnamed 9.jpg" data-index="8" onclick="openImage(this)">
-<img src="unnamed 10.jpg" data-index="9" onclick="openImage(this)">
-<img src="unnamed 11.jpg" data-index="10" onclick="openImage(this)">
-<img src="unnamed 12.jpg" data-index="11" onclick="openImage(this)">
-<img src="unnamed 13.jpg" data-index="12" onclick="openImage(this)">
-<img src="unnamed 14.jpg" data-index="13" onclick="openImage(this)">
-<img src="unnamed 15.jpg" data-index="14" onclick="openImage(this)">
-
+<img src="unnamed 1.jpg" onclick="openGallery()">
+<img src="unnamed 2.jpg" onclick="openGallery()">
+<img src="unnamed 3.jpg" onclick="openGallery()">
+<img src="unnamed 4.jpg" onclick="openGallery()">
+<img src="unnamed 5.jpg" onclick="openGallery()">
+<img src="unnamed 6.jpg" onclick="openGallery()">
+<img src="unnamed 7.jpg" onclick="openGallery()">
+<img src="unnamed 8.jpg" daonclick="openGallery()">
+<img src="unnamed 9.jpg" onclick="openGallery()">
+<img src="unnamed 10.jpg" onclick="openGallery()">
+<img src="unnamed 11.jpg" onclick="openGallery()">
+<img src="unnamed 12.jpg" onclick="openGallery()">
+<img src="unnamed 13.jpg" onclick="openGallery()">
+<img src="unnamed 14.jpg" onclick="openGallery()">
+<img src="unnamed 15.jpg" onclick="openGallery()">
 </div>
 </section>
 <section class="contact" id="contact">
@@ -313,16 +312,15 @@ z-index:10000;
 <a href="https://wa.me/201017579942?text=Hello%20Mostafa%2C%20I%20want%20to%20work%20with%20you" class="whatsapp-float" target="_blank">💬</a>
 
 <script>
-let images = document.querySelectorAll(".instagram-gallery img");
+let images;
 let currentIndex = 0;
 
 let startX = 0;
 let endX = 0;
 
 function openImage(img){
+  images = document.querySelectorAll(".instagram-gallery img");
   currentIndex = Number(img.dataset.index);
-  document.getElementById("lightbox").style.display = "flex";
-  document.getElementById("lightbox-img").src = img.src;
 }
 
 function closeImage(){
@@ -348,13 +346,23 @@ function prevImage(){
 function handleSwipe(){
   let diff = startX - endX;
 
-  if(Math.abs(diff) < 50) return;
+  if(Math.abs(diff) < 80) return;
 
   if(diff > 0){
     nextImage();   // سحب شمال
   } else {
     prevImage();   // سحب يمين
-  }
+    
+}
+function openGallery(){
+  const firstImg = document.querySelectorAll(".instagram-gallery img")[0];
+
+  images = document.querySelectorAll(".instagram-gallery img");
+
+  currentIndex = 0;
+
+  document.getElementById("lightbox").style.display = "flex";
+  document.getElementById("lightbox-img").src = firstImg.src;
 }
 const skills=document.querySelectorAll(".skills-exact p");
 window.addEventListener("scroll",()=>{
