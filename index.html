@@ -257,7 +257,15 @@ to{box-shadow:0 0 25px rgba(212,175,55,0.9);}
 <img src="14.jpg" onclick="openImage(this.src)">
 </div>
 </section>
-<img id="lightbox-img">
+<div id="lightbox" onclick="closeImage()">
+  <span class="close">&times;</span>
+  <img id="lightbox-img">
+
+  <div class="nav">
+    <button onclick="prevImage(event)">‹</button>
+    <button onclick="nextImage(event)">›</button>
+  </div>
+</div>
 </div>
 <!-- PREVIOUS WORKS -->
 <section class="results">
