@@ -320,9 +320,13 @@ let endX = 0;
 
 function openImage(img){
   images = document.querySelectorAll(".instagram-gallery img");
-  currentIndex = Number(img.dataset.index);
-}
 
+  currentIndex = Number(img.dataset.index);
+
+  document.getElementById("lightbox").style.display = "flex";
+  document.getElementById("lightbox-img").src = img.src;
+}
+    
 function closeImage(){
   document.getElementById("lightbox").style.display = "none";
 }
@@ -354,16 +358,16 @@ function handleSwipe(){
     prevImage();   // سحب يمين
     
 }
+    
 function openGallery(){
-  const firstImg = document.querySelectorAll(".instagram-gallery img")[0];
-
   images = document.querySelectorAll(".instagram-gallery img");
 
   currentIndex = 0;
 
   document.getElementById("lightbox").style.display = "flex";
-  document.getElementById("lightbox-img").src = firstImg.src;
+  document.getElementById("lightbox-img").src = images[0].src;
 }
+    
 const skills=document.querySelectorAll(".skills-exact p");
 window.addEventListener("scroll",()=>{
 skills.forEach((el,i)=>{
